@@ -43,7 +43,7 @@ namespace MPGSSelenium
 
                     IWebElement merchantIdTextBox = driver.FindElement(By.Id("merchantId"));
                     merchantIdTextBox.Clear();
-                    merchantIdTextBox.SendKeys("120810000118");
+                    merchantIdTextBox.SendKeys("");
                     merchantIdTextBox.SendKeys(Keys.Enter);
 
                     Thread.Sleep(3000);
@@ -62,13 +62,30 @@ namespace MPGSSelenium
 
                     ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 100)");
 
+                    Thread.Sleep(200);
+
                     IWebElement chkoptout = driver.FindElement(By.Id("mciSpProductsOptOut"));
                     chkoptout.Click();
 
                     IWebElement submitbtn = driver.FindElement(By.ClassName("SubmitSubmit"));
                     submitbtn.Click();
 
-                    Thread.Sleep(3000);
+                    Thread.Sleep(2000);
+
+                    ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 100)");
+
+                    Thread.Sleep(200);
+
+                    IWebElement linkApprove = driver.FindElement(By.Id("merchantApprove"));
+                    linkApprove.Click();
+
+                    Thread.Sleep(4000);
+
+                    ((IJavaScriptExecutor)driver).ExecuteScript("window.scrollTo(0, document.body.scrollHeight - 100)");
+
+                    IWebElement btnapproved = driver.FindElement(By.ClassName("SubmitSubmit"));
+                    btnapproved.Click();
+                    
 
                     Console.WriteLine("Program end...");
                     Console.ReadLine();
